@@ -4,7 +4,6 @@ summary: ТЗ
 date: 2025-04-04
 authors:
   - admin
-image:
 ---
 
 

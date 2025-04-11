@@ -2,135 +2,85 @@
 title: Техническое Задание
 summary: ТЗ
 date: 2025-04-04
-authors:
-  - admin
 image:
+
+authors:
+  - Кадров Виктор Максимович
+  - Оганнисян Давит Багратович
 ---
 
 
-**Embed videos, podcasts, code, LaTeX math, and even test students!**
+## 1. ОБЩИЕ ПОЛОЖЕНИЯ
 
-On this page, you'll find some examples of the types of technical content that can be rendered with Hugo Blox.
+### 1.1. НАИМЕНОВАНИЕ И УСЛОВНОЕ ОБОЗНАЧЕНИЕ РАБОТЫ
 
-## Video
+Наименование работы: Разработка приложения-генератора задач и управления проектами на основе шаблонов для Jira Software
+Условное обозначение работы: "Jira Task Generator"
 
-Teach your course by sharing videos with your students. Choose from one of the following approaches:
+### 1.2. НАИМЕНОВАНИЕ ПРЕДПРИЯТИЯ ИСПОЛНИТЕЛЯ И ЗАКАЗЧИКА
 
-{{< youtube D2vj0WcvH5c >}}
+Заказчик: АО Сбербанк
+Исполнитель: ООО Рога и копыта
 
-**Youtube**:
+### 1.3. СРОКИ ВЫПОЛНЕНИЯ
 
-    {{</* youtube w7Ft2ymGmfc */>}}
+Начало работ: 01.04.2025
+Окончание работ: 01.06.2025
 
-**Bilibili**:
+### 1.4. ОСОБЫЕ УСЛОВИЯ
 
-    {{</* bilibili id="BV1WV4y1r7DF" */>}}
+Настоящее Техническое задание может уточняться и дополняться в процессе выполнения работ. Все изменения должны быть согласованы сторонами.
 
-**Video file**
+## 2. НАЗНАЧЕНИЕ РАЗРАБОТКИ
 
-Videos may be added to a page by either placing them in your `assets/media/` media library or in your [page's folder](https://gohugo.io/content-management/page-bundles/), and then embedding them with the _video_ shortcode:
+Целью разработки является создание веб-сервиса, интегрируемого с Jira Software, который позволит автоматизировать создание задач, учитывать нагрузку команды и распределять ресурсы наиболее эффективно. Основные функции приложения:
+Генерация задач на основе шаблонов
+Автоматическое распределение задач между участниками
+Учет загрузки сотрудников
+Интеграция с Jira Software
+Гибкая система корректировки и редактирования задач
 
-    {{</* video src="my_video.mp4" controls="yes" */>}}
+## 3. ТРЕБОВАНИЯ К ПРОГРАММЕ ИЛИ ПРОГРАММНОМУ ИЗДЕЛИЮ
 
-## Podcast
+### 3.1. ТРЕБОВАНИЯ К ФУНКЦИОНАЛЬНЫМ ХАРАКТЕРИСТИКАМ
 
-You can add a podcast or music to a page by placing the MP3 file in the page's folder or the media library folder and then embedding the audio on your page with the _audio_ shortcode:
+#### 3.1.1. Общие требования
 
-    {{</* audio src="ambient-piano.mp3" */>}}
+Приложение должно обеспечивать:
+Высокую производительность и стабильность работы
+Удобный и интуитивно понятный интерфейс
+Гибкость в настройке параметров задач
 
-Try it out:
+#### 3.1.2. Основные функции
 
-{{< audio src="ambient-piano.mp3" >}}
+Приложение должно включать следующие модули:
+Модуль генерации задач: создание задач на основе шаблонов
+Модуль управления проектами: распределение задач по сотрудникам
+Модуль интеграции с Jira Software: синхронизация данных
+Модуль отчетности: анализ загрузки команды и эффективности выполнения задач
+Модуль редактирования: возможность корректировки автоматически созданных задач
 
-## Test students
+### 3.2. ТРЕБОВАНИЯ К НАДЕЖНОСТИ
 
-Provide a simple yet fun self-assessment by revealing the solutions to challenges with the `spoiler` shortcode:
+Система должна обеспечивать стабильную работу с доступностью не менее 99.5%
+Время восстановления после сбоя – не более 10 минут
+Регулярное резервное копирование данных
 
-```markdown
-{{</* spoiler text="👉 Click to view the solution" */>}}
-You found me!
-{{</* /spoiler */>}}
-```
+### 3.3. ТРЕБОВАНИЯ К ТЕХНИЧЕСКИМ СРЕДСТВАМ
 
-renders as
+Серверная часть: Golang >= 1.24
+Клиентская часть: React >=16.0
 
-{{< spoiler text="👉 Click to view the solution" >}} You found me 🎉 {{< /spoiler >}}
+### 3.4. ТРЕБОВАНИЯ К ПРОГРАММНОЙ СОВМЕСТИМОСТИ
 
-## Math
+Поддержка API Jira Software
+Совместимость с REST API
+Поддержка OAuth 2.0 для аутентификации
 
-Hugo Blox Builder supports a Markdown extension for $\LaTeX$ math. You can enable this feature by toggling the `math` option in your `config/_default/params.yaml` file.
+## 4. ТРЕБОВАНИЯ К ПРОГРАММНОЙ ДОКУМЕНТАЦИИ
 
-To render _inline_ or _block_ math, wrap your LaTeX math with `{{</* math */>}}$...${{</* /math */>}}` or `{{</* math */>}}$$...$${{</* /math */>}}`, respectively.
+При создании ПО должны быть оформлены следующие документы:
 
-{{% callout note %}}
-We wrap the LaTeX math in the Hugo Blox _math_ shortcode to prevent Hugo rendering our math as Markdown.
-{{% /callout %}}
-
-Example **math block**:
-
-```latex
-{{</* math */>}}
-$$
-\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}
-$$
-{{</* /math */>}}
-```
-
-renders as
-
-{{< math >}}
-$$\gamma_{n} = \frac{ \left | \left (\mathbf x_{n} - \mathbf x_{n-1} \right )^T \left [\nabla F (\mathbf x_{n}) - \nabla F (\mathbf x_{n-1}) \right ] \right |}{\left \|\nabla F(\mathbf{x}_{n}) - \nabla F(\mathbf{x}_{n-1}) \right \|^2}$$
-{{< /math >}}
-
-Example **inline math** `{{</* math */>}}$\nabla F(\mathbf{x}_{n})${{</* /math */>}}` renders as {{< math >}}$\nabla F(\mathbf{x}_{n})${{< /math >}}.
-
-Example **multi-line math** using the math linebreak (`\\`):
-
-```latex
-{{</* math */>}}
-$$f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}$$
-{{</* /math */>}}
-```
-
-renders as
-
-{{< math >}}
-
-$$
-f(k;p_{0}^{*}) = \begin{cases}p_{0}^{*} & \text{if }k=1, \\
-1-p_{0}^{*} & \text{if }k=0.\end{cases}
-$$
-
-{{< /math >}}
-
-## Code
-
-Hugo Blox Builder utilises Hugo's Markdown extension for highlighting code syntax. The code theme can be selected in the `config/_default/params.yaml` file.
-
-
-    ```python
-    import pandas as pd
-    data = pd.read_csv("data.csv")
-    data.head()
-    ```
-
-renders as
-
-```python
-import pandas as pd
-data = pd.read_csv("data.csv")
-data.head()
-```
-
-## Inline Images
-
-```go
-{{</* icon name="python" */>}} Python
-```
-
-renders as
-
-{{< icon name="python" >}} Python
-
-## Did you find this page helpful? Consider sharing it 🙌
+Руководство системного программиста (ГОСТ 19.503-79);
+Руководство оператора (ГОСТ 19.505-79);
+Программа и методика испытаний (ГОСТ 19.301-79).
